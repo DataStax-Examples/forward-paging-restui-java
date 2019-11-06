@@ -1,4 +1,4 @@
-# Paginating restuls over a stateless REST service.
+# Paginating restuls forward over a stateless REST service.
 This example application shows how to paginate the results returned by Cassandra in a REST UI.  
 
 

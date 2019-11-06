@@ -1,45 +1,52 @@
-# datastax-example-template
-A short few sentences describing what is the purpose of the example and what the user will learn
+# Paginating restuls over a stateless REST service.
+This example application shows how to paginate the results returned by Cassandra in a REST UI.  
 
-e.g.
-This application shows how to use configure your NodeJs application to connect to DDAC/Cassandra/DSE or an Apollo database at runtime.
 
-Contributors: A listing of contributors to this repository linked to their github profile
+Contributors: [Tomasz Lelek](https://github.com/tomekl007)
 
 ## Objectives
-A list of the top objectives that are being demonstrated by this sample
+* To demonstrate how to paginate over the paging state returned by Cassandra, and encode it in HTTP URLs for a REST application.
+* Pagination will be forward-only   
 
-e.g.
-* To demonstrate how to specify at runtime between a standard (DSE/DDAC/C*) client configuration and an Apollo configuration for the same application.
-  
+
 ## Project Layout
-A list of key files within this repo and a short 1-2 sentence description of why they are important to the project
+*  [ForwardPagingRestUi.java](/src/main/java/com/datastax/examples/ForwardPagingRestUi.java) - The main application which will create and populate a schema and start the rest service.
 
-e.g.
-* app.js - The main application file which contains all the logic to switch between the configurations
 
 ## How this Sample Works
-A description of how this sample works and how it demonstrates the objectives outlined above
+This appication will create a table called forward_paging_rest_ui in the examples keyspace.  It will then populate the table with 3 users and 49 videos each.  Then it will start a
+rest service on http://localhost:8080/users.  
+
+To explore this example, start with the following request and walk from there:
+curl -i http://localhost:8080/users/1/videos
 
 ## Setup and Running
 
 ### Prerequisites
-The prerequisites required for this application to run
-
-e.g.
-* NodeJs version 8
-* A DSE 6.7 Cluster
-* Schema added to the cluster
+* Java 8
+* A DSE/DDAC/C* cluster or an Apollo database to connect to with the appropriate connection information
 
 ### Running
-The steps and configuration needed to run and build this application
+This first step in the process is to build and package the application.  This can be done using the following command from within the root directory of this repo:
 
-e.g.
-To run this application use the following command:
+`mvn package`
 
-`node app.js`
+This will compile the code and package it as a fat JAR file (located in `target/forward-paging-rest-ui-1.0-SNAPSHOT-jar-with-dependencies.jar), 
+which contains all the dependencies needed to run the application.
 
-This will produce the following output:
+Once you have compiled the application, you can run it with:
 
-`Connected to cluster with 3 host(s) ["XX.XX.XX.136:9042","XX.XX.XX.137:9042","XX.XX.XX.138:9042"]`
+`java -jar target/forward-paging-rest-ui-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
+By default, it will try to your cluster at 127.0.0.1:9042, however you can change the contact points by adding a file called application.conf 
+to your class path with the following contents:
+
+`// Add `application.conf` to your classpath with the following contents:
+ datastax-java-driver {
+   basic {
+     contact-points = [ "1.2.3.4:9042", "5.6.7.8:9042" ]
+     load-balancing-policy.local-datacenter = datacenter1
+   }
+ }`
+
+If you would like to connect to an Apollo cluster instead, simply follow the [switching-connection-configurations-java-driver](https://github.com/DataStax-Examples/switching-connection-configurations-java-driver-oss-v3)

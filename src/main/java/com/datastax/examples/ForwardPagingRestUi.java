@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.datastax.oss.driver.examples.paging;
+package com.datastax.examples;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.BoundStatementBuilder;
@@ -42,8 +42,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import org.glassfish.jersey.server.ResourceConfig;
-// import org.glassfish.hk2.utilities.binding.AbstractBinder;
-// import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 
 
 /**

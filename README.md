@@ -41,9 +41,7 @@ Once you have compiled the application, you can run it with:
 By default, it will try to your cluster at 127.0.0.1:9042, however you can change the contact points by adding a file called application.conf 
 to your class path with the following contents:
 
-`// Add application.conf to your classpath with the following contents:
- 
- datastax-java-driver {
+`datastax-java-driver {
    basic {
      contact-points = [ "1.2.3.4:9042", "5.6.7.8:9042" ]
      load-balancing-policy.local-datacenter = datacenter1

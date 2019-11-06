@@ -3,11 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <artifactId>java-driver-parent</artifactId>
-        <groupId>com.datastax.oss</groupId>
-        <version>4.4.0-SNAPSHOT</version>
-    </parent>
 
     <groupId>com.datastax.examples</groupId>
     <artifactId>forward-paging-rest-ui</artifactId>
@@ -24,15 +19,13 @@
         <dependency>
             <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-core</artifactId>
-            <version>${driver.version}/version>
+            <version>${driver.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-query-builder</artifactId>
             <version>${driver.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-mapper-runtime</artifactId>
@@ -54,40 +47,36 @@
             <version>${jax-rs.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.hk2</groupId>
-            <artifactId>hk2-api</artifactId>
-            <version>${hk2.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
             <optional>true</optional>
+            <version>${jersey.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <optional>true</optional>
+            <version>${jersey.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-jdk-http</artifactId>
             <optional>true</optional>
+            <version>${jersey.version}</version>
         </dependency>
 
         <!--CDI frameworks (HK2)-->
-
         <dependency>
             <groupId>org.glassfish.hk2</groupId>
             <artifactId>hk2-api</artifactId>
             <optional>true</optional>
+            <version>${hk2.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <optional>true</optional>
+            <version>${jersey.version}</version>
         </dependency>
     </dependencies>
 
@@ -98,8 +87,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -132,5 +121,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

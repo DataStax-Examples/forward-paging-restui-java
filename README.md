@@ -2,7 +2,7 @@
 This example application shows how to paginate the results returned by Cassandra in a REST UI.  
 
 
-Contributors: [Tomasz Lelek](https://github.com/tomekl007)
+Contributors: [Tomasz Lelek](https://github.com/tomekl007), [Dave Bechberger](https://github.com/bechbd) , [Carlos Diaz](https://github.com/crdiaz324)
 
 ## Objectives
 * To demonstrate how to paginate over the paging state returned by Cassandra, and encode it in HTTP URLs for a REST application.

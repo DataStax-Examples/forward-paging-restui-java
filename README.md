@@ -14,7 +14,7 @@ Contributor(s): [Tomasz Lelek](https://github.com/tomekl007), [Carlos Diaz](http
 
 
 ## How this Sample Works
-This appication creates a table called `forward_paging_rest_ui` in the `examples` keyspace.  It then populates the table with 3 users and 49 videos for each user. It then starts a REST service for that data, accessible via the following endpoint.
+This application creates a table called `forward_paging_rest_ui` in the `examples` keyspace.  It then populates the table with 3 users and 49 videos for each user. It then starts a REST service for that data, accessible via the following endpoint.
 
 `http://localhost:8080/users` 
 

@@ -1,5 +1,5 @@
 # Forward Pagination in a Stateless REST service
-Working on a backend REST service that handles access to Cassandra while passing results back to a web front-end for display? You've come to the right place if you have any paging functionality in that web application. This example shows how to paginate the results returned by Cassandra in a web application via a backend REST service.  
+Working on a backend REST service that handles access to Cassandra while passing results back to a web front-end for display? You've come to the right place if you have any paging functionality in that web application. This example shows how to page the results returned by Cassandra in a web application via a backend REST service.  
 
 
 Contributor(s): [Tomasz Lelek](https://github.com/tomekl007), [Carlos Diaz](https://github.com/crdiaz324)

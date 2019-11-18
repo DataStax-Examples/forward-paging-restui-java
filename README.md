@@ -25,7 +25,7 @@ To explore the paging functionality, use the following and walk from there:
 ## Setup and Running
 
 ### Prerequisites
-* Java 8 ( [installation instructions] (https://docs.datastax.com/en/ddac/doc/datastax_enterprise/install/installSupportSoftwareTOC.html) )
+* Java 8 ( [installation instructions](https://docs.datastax.com/en/ddac/doc/datastax_enterprise/install/installSupportSoftwareTOC.html) )
 * A Cassandra, DDAC, DSE cluster or Apollo database ( docker is a nice option for local install - [see docs](https://docs.datastax.com/en/docker/doc/docker/dockerQuickStart.html) )
 
 ### Running

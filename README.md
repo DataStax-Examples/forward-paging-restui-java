@@ -1,30 +1,32 @@
 # Forward Pagination in a Stateless REST service
-This example application shows how to paginate the results returned by Cassandra in a REST UI.  
+Working on a backend REST service that handles access to Cassandra while passing results back to a web front-end for display? You've come to the right place if you have any paging functionality in that web application. This example shows how to paginate the results returned by Cassandra in a web application via a backend REST service.  
 
 
-Contributors: [Tomasz Lelek](https://github.com/tomekl007), [Carlos Diaz](https://github.com/crdiaz324)
+Contributor(s): [Tomasz Lelek](https://github.com/tomekl007), [Carlos Diaz](https://github.com/crdiaz324)
 
 ## Objectives
-* To demonstrate how to paginate over the paging state returned by Cassandra, and encode it in HTTP URLs for a REST application.
-* Pagination will be forward-only   
+* Demonstrate how to use the paging state returned by Cassandra and encode it in HTTP URLs for a REST application.
+* Pagination is "forward-only", which means "give me X results, and then the next X results, and then the next X results ..."
 
 
 ## Project Layout
-*  [ForwardPagingRestUi.java](/src/main/java/com/datastax/examples/ForwardPagingRestUi.java) - The main application which will create and populate a schema and start the rest service.
+*  [ForwardPagingRestUi.java](/src/main/java/com/datastax/examples/ForwardPagingRestUi.java) - The main application which creates and populates a schema and starts the rest service.
 
 
 ## How this Sample Works
-This appication will create a table called forward_paging_rest_ui in the examples keyspace.  It will then populate the table with 3 users and 49 videos each.  Then it will start a
-rest service on http://localhost:8080/users.  
+This appication creates a table called `forward_paging_rest_ui` in the `examples` keyspace.  It then populates the table with 3 users and 49 videos for each user. It then starts a REST service for that data, accessible via the following endpoint.
 
-To explore this example, start with the following request and walk from there:
-curl -i http://localhost:8080/users/1/videos
+`http://localhost:8080/users` 
+
+To explore the paging functionality, use the following and walk from there:
+
+`curl -i http://localhost:8080/users/1/videos`
 
 ## Setup and Running
 
 ### Prerequisites
-* Java 8
-* A DSE/DDAC/C* cluster or an Apollo database to connect to with the appropriate connection information
+* Java 8 ( [installation instructions] (https://docs.datastax.com/en/ddac/doc/datastax_enterprise/install/installSupportSoftwareTOC.html) )
+* A Cassandra, DDAC, DSE cluster or Apollo database ( docker is a nice option for local install - [see docs](https://docs.datastax.com/en/docker/doc/docker/dockerQuickStart.html) )
 
 ### Running
 This first step in the process is to build and package the application.  This can be done using the following command from within the root directory of this repo:
@@ -38,14 +40,15 @@ Once you have compiled the application, you can run it with:
 
 `java -jar target/forward-paging-rest-ui-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
-By default, it will try to your cluster at 127.0.0.1:9042, however you can change the contact points by adding a file called application.conf 
-to your class path with the following contents:
+By default, it will try to your cluster at 127.0.0.1:9042, however you can change the contact points by adding a file called application.conf to your class path with the following contents:
 
-`datastax-java-driver {
+````
+datastax-java-driver {
    basic {
      contact-points = [ "1.2.3.4:9042", "5.6.7.8:9042" ]
      load-balancing-policy.local-datacenter = datacenter1
    }
- }`
+ }
+ ```
 
-If you would like to connect to an Apollo cluster instead, simply follow the [switching-connection-configurations-java-driver](https://github.com/DataStax-Examples/switching-connection-configurations-java-driver-oss-v3)
+If you would like to connect to an Apollo cluster instead, simply follow the [Switch connection between on-prem and cloud example](https://github.com/DataStax-Examples/switch-connection-java)

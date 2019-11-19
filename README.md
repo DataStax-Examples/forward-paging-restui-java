@@ -33,14 +33,14 @@ This first step in the process is to build and package the application.  This ca
 
 `mvn package`
 
-This will compile the code and package it as a fat JAR file (located in `target/forward-paging-rest-ui-1.0-SNAPSHOT-jar-with-dependencies.jar), 
+This will compile the code and package it as a fat JAR file (located in `target/forward-paging-rest-ui-1.0-SNAPSHOT-jar-with-dependencies.jar`), 
 which contains all the dependencies needed to run the application.
 
 Once you have compiled the application, you can run it with:
 
 `java -jar target/forward-paging-rest-ui-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
-By default, it will try to your cluster at 127.0.0.1:9042, however you can change the contact points by adding a file called application.conf to your class path with the following contents:
+By default, it will try to your cluster at 127.0.0.1:9042, however you can change the contact points by adding a file called application.conf to your classpath with the following contents:
 
 ```
 datastax-java-driver {
